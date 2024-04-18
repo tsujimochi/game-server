@@ -1,0 +1,12 @@
+services:
+  minecraft:
+    build:
+      context: ./docker/minecraft
+      args:
+        - DOWNLOAD_LINK=${MINECRAFT_DOWNLOAD_LINK}
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./games/minecraft/world:/var/games/world
+      - ./games/minecraft/server.properties:/var/games/server.properties
+      - ./games/minecraft/whitelist.json:/var/games/whitelist.json
